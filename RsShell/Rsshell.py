@@ -4,7 +4,10 @@ from colorama import Fore, Style
 import re
 
 # Configuration
-limit = 10
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
+}
+limit = 25
 rss_feed_url = "https://cvefeed.io/rssfeed/latest.xml"
 product_to_check = ["Drupal", "Joomla", "Checkpoint"]
 
@@ -21,7 +24,7 @@ def colorize(text, color):
 
 # Fetch RSS feed
 try:
-    response = requests.get(rss_feed_url, timeout=10)
+    response = requests.get(rss_feed_url, timeout=10, headers=headers)
     response.raise_for_status()
 except requests.RequestException as e:
     print(colorize(f"[!] Failed to fetch RSS feed: {e}", Fore.RED))
