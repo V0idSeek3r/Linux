@@ -1,0 +1,8 @@
+Read File 
+
+tac doc.txt
+less doc.txt
+strings doc.txt
+grep . doc.txt
+cp doc.txt /dev/stdout
+while read line; do echo $line; done < doc.txt
