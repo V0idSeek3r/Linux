@@ -1,8 +1,10 @@
 Read File 
 
+cat doc.txt
 tac doc.txt
 less doc.txt
 strings doc.txt
 grep . doc.txt
 cp doc.txt /dev/stdout
+sed 's/<?php[^>]*?>//g' doc.php
 while read line; do echo $line; done < doc.txt
